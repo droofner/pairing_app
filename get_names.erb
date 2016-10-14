@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<h4>How many students:</h4>
+
+<form action="names" method="post">
+ <input type="number" id="fnames" oninput="makeBoxes()"/ required>
+<!--  <input type="button"  /> -->
+  <div id="boxes"></div>
+  <input type = "submit">
+</form>
+</head>
+
+<!-- <script
+             src="http://code.jquery.com/jquery-2.1.1.js"
+             integrity="sha256-FA/0OOqu3gRvHOuidXnRbcmAWVcJORhz+pv3TX2+U6w="
+             crossorigin="anonymous"></script> -->
+<script>
+  function makeBoxes(){
+   // parseInt makes sure that the number entered not gets treated like a string
+   var numberOfBoxes=parseInt(document.getElementById('fnames').value, 10);
+   var boxesHTML="";
+   var boxesString="<input type='text'/ name='names[]'/ required>"
+   console.log(numberOfBoxes);
+   for (var i=1; i<=numberOfBoxes; i++){
+       boxesHTML+=boxesString + "<br>";
+   } 
+   document.getElementById('boxes').innerHTML=boxesHTML;
+}
+</script>
+
+</html>
